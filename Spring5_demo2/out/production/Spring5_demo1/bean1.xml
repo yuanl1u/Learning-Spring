@@ -5,10 +5,6 @@
 <!--    集合类型属性创建-->
     <bean id="stu" class="com.yuan.spring.collectionType.Stu">
 <!--        数组类型的注入-->
-<!--        注意此时的各个属性都是只有这个stu可以使用的-->
-<!--        bean2.xml演示
-            1. 如何在集合有对象
-            2. 把集合当做一种"全局变量"-->
         <property name="courses">
             <array>
                 <value>java</value>

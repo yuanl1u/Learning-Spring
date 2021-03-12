@@ -36,5 +36,20 @@
                 <value>Redis</value>
             </set>
         </property>
+<!--        注入list集合 但是是对象集合-->
+        <property name="courseList">
+            <list>
+                <ref bean="course1"></ref>
+                <ref bean="course2"></ref>
+            </list>
+        </property>
+    </bean>
+
+<!--    创建多个course对象-->
+    <bean id="course1" class="com.yuan.spring.collectionType.Course">
+        <property name="cname" value="Spring5"> </property>
+    </bean>
+    <bean id="course2" class="com.yuan.spring.collectionType.Course">
+        <property name="cname" value="Mybatis"> </property>
     </bean>
 </beans>
