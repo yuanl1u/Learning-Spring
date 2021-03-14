@@ -13,7 +13,8 @@
     </util:list>
 
 <!--    使用上面的util:list-->
-    <bean id="book" class="com.yuan.spring.collectionType.Book">
+<!--    scope属性设置为多实例-->
+    <bean id="book" class="com.yuan.spring.collectionType.Book" scope="prototype">
         <property name="list" ref="bookList"> </property>
     </bean>
 </beans>
