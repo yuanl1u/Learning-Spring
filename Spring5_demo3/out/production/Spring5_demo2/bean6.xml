@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+<!--    手动注入-->
+    <!--    <bean id="emp" class="com.yuan.spring.autowire.Emp">-->
+    <!--        <property name="dept" ref="dept"> </property>-->
+    <!--    </bean>-->
+
+<!--    autowire有两种值：
+        byName: 根据属性名称注入，bean的id的值要和雷属性名称一样
+        byType：根据属性类型注入-->
+<!--    现实中用XML自动装配的比较少，一般都是注解方式-->
+    <bean id="emp" class="com.yuan.spring.autowire.Emp" autowire="byName">
+    </bean>
+    <bean id="dept" class="com.yuan.spring.autowire.Dept">
+    </bean>
+</beans>
