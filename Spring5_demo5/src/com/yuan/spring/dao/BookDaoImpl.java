@@ -47,8 +47,11 @@ public class BookDaoImpl implements BookDao {
         System.out.println("update = " + update);
     }
 
+    // 查询表记录
     @Override
     public int selectCount() {
-
+        String sql = "SELECT COUNT(*) FROM t_book";
+        int count = jdbcTemplate.queryForObject(sql, Integer.class);
+        return count;
     }
 }

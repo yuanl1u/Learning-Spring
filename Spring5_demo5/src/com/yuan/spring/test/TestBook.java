@@ -43,4 +43,13 @@ public class TestBook {
         BookService bookService = context.getBean("bookService", BookService.class);
         bookService.deleteBook("1");
     }
+
+    // 查询返回某个值
+    @Test
+    public void queryValueThroughJdbc(){
+        ApplicationContext context = new ClassPathXmlApplicationContext("bean1.xml");
+        BookService bookService = context.getBean("bookService", BookService.class);
+        int count = bookService.findCount();
+        System.out.println("count = " + count);
+    }
 }

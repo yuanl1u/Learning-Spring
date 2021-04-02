@@ -30,7 +30,8 @@ public class BookService {
 
     // 查询有多少条记录
     public int findCount(){
-        bookDao.selectCount();
+        int count = bookDao.selectCount();
+        return count;
     }
 
 }
