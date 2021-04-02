@@ -13,4 +13,6 @@ public interface BookDao {
     void updateBook(Book book);
 
     void deleteBook(String id);
+
+    int selectCount();
 }

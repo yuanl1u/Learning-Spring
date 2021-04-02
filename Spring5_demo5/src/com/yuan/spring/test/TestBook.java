@@ -42,6 +42,5 @@ public class TestBook {
         ApplicationContext context = new ClassPathXmlApplicationContext("bean1.xml");
         BookService bookService = context.getBean("bookService", BookService.class);
         bookService.deleteBook("1");
-
     }
 }

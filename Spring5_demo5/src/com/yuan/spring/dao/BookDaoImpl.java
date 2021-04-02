@@ -46,4 +46,9 @@ public class BookDaoImpl implements BookDao {
         int update = jdbcTemplate.update(sql, id);
         System.out.println("update = " + update);
     }
+
+    @Override
+    public int selectCount() {
+
+    }
 }
