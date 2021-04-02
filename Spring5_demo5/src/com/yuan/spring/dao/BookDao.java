@@ -9,4 +9,8 @@ import com.yuan.spring.entity.Book;
 public interface BookDao {
     // "添加"方法
     void add(Book book);
+
+    void updateBook(Book book);
+
+    void deleteBook(String id);
 }

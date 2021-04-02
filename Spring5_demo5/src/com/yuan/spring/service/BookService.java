@@ -19,4 +19,13 @@ public class BookService {
     public void addBook(Book book) {
         bookDao.add(book);
     }
+
+    public void updateBook(Book book){
+        bookDao.updateBook(book);
+    }
+
+    public void deleteBook(String id){
+        bookDao.deleteBook(id);
+    }
+
 }

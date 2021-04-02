@@ -12,6 +12,7 @@ import org.springframework.context.support.ClassPathXmlApplicationContext;
  */
 public class TestBook {
 
+    // 添加
     @Test
     public void testJdbcTemplate(){
         ApplicationContext context = new ClassPathXmlApplicationContext("bean1.xml");
@@ -21,5 +22,26 @@ public class TestBook {
         book.setUserName("java");
         book.setUstatus("a");
         bookService.addBook(book);
+    }
+
+    // 修改
+    @Test
+    public void updateThroughJdbc(){
+        ApplicationContext context = new ClassPathXmlApplicationContext("bean1.xml");
+        BookService bookService = context.getBean("bookService", BookService.class);
+        Book book = new Book();
+        book.setUserId("1");
+        book.setUserName("javaUpUp");
+        book.setUstatus("yuan");
+        bookService.updateBook(book);
+    }
+
+    // 删除
+    @Test
+    public void deleteThroughJdbc(){
+        ApplicationContext context = new ClassPathXmlApplicationContext("bean1.xml");
+        BookService bookService = context.getBean("bookService", BookService.class);
+        bookService.deleteBook("1");
+
     }
 }
