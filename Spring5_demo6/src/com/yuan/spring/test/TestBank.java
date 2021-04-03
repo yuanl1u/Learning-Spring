@@ -1,8 +1,10 @@
 package com.yuan.spring.test;
 
+import com.yuan.spring.config.TxConfig;
 import com.yuan.spring.service.UserService;
 import org.junit.Test;
 import org.springframework.context.ApplicationContext;
+import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 import java.awt.print.Book;
@@ -27,6 +29,14 @@ public class TestBank {
     @Test
     public void testXmlAccount(){
         ApplicationContext context = new ClassPathXmlApplicationContext("bean2.xml");
+        UserService userService = context.getBean("userService", UserService.class);
+        userService.accountMoney();
+    }
+
+    // 完全注解方式配置事务
+    @Test
+    public void completeAnnotationAccount(){
+        ApplicationContext context = new AnnotationConfigApplicationContext(TxConfig.class);
         UserService userService = context.getBean("userService", UserService.class);
         userService.accountMoney();
     }

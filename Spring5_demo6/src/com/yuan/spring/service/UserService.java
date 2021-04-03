@@ -14,7 +14,7 @@ import org.springframework.transaction.annotation.Transactional;
  */
 
 @Service
-// @Transactional(propagation = Propagation.REQUIRED, isolation = Isolation.REPEATABLE_READ, readOnly = false)
+@Transactional(propagation = Propagation.REQUIRED, isolation = Isolation.REPEATABLE_READ, readOnly = false)
 // 7种传播, 4种隔离级别(脏读，不可重复读，幻读),
 // readOnly只读不允许修改 rollbackFor/noRollbackFor设置出现哪些异常进行回滚
 public class UserService {
