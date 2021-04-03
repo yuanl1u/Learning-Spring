@@ -5,6 +5,8 @@ import com.yuan.spring.entity.Book;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 /**
  * @author Yuan Liu
  * @create 2021-03-30 7:09 下午
@@ -32,6 +34,18 @@ public class BookService {
     public int findCount(){
         int count = bookDao.selectCount();
         return count;
+    }
+
+    // 查询返回对象
+    public Book findOne(String id){
+        Book book = bookDao.findBookInfo(id);
+        return book;
+    }
+
+    // 查询返回集合
+    public List<Book> findAll(){
+        List<Book> bookList = bookDao.findAllBooks();
+        return bookList;
     }
 
 }

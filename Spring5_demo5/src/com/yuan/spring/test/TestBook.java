@@ -6,6 +6,8 @@ import org.junit.Test;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
+import java.util.List;
+
 /**
  * @author Yuan Liu
  * @create 2021-03-30 8:19 下午
@@ -51,5 +53,23 @@ public class TestBook {
         BookService bookService = context.getBean("bookService", BookService.class);
         int count = bookService.findCount();
         System.out.println("count = " + count);
+    }
+
+    // 查询返回对象
+    @Test
+    public void queryObjectThroughJdbc(){
+        ApplicationContext context = new ClassPathXmlApplicationContext("bean1.xml");
+        BookService bookService = context.getBean("bookService", BookService.class);
+        Book book = bookService.findOne("1");
+        System.out.println("book = " + book);
+    }
+
+    // 查询返回集合
+    @Test
+    public void queryListThroughJdbc(){
+        ApplicationContext context = new ClassPathXmlApplicationContext("bean1.xml");
+        BookService bookService = context.getBean("bookService", BookService.class);
+        List<Book> bookList = bookService.findAll();
+        System.out.println("bookList = " + bookList);
     }
 }
