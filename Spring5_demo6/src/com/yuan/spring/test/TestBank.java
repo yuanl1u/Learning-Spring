@@ -23,4 +23,12 @@ public class TestBank {
         userService.accountMoney();
     }
 
+    // XML方式配置事务 转账测试
+    @Test
+    public void testXmlAccount(){
+        ApplicationContext context = new ClassPathXmlApplicationContext("bean2.xml");
+        UserService userService = context.getBean("userService", UserService.class);
+        userService.accountMoney();
+    }
+
 }
