@@ -7,6 +7,7 @@ import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Repository;
 
+import java.util.Arrays;
 import java.util.List;
 
 /**
@@ -58,6 +59,7 @@ public class BookDaoImpl implements BookDao {
         return count;
     }
 
+    // 返回对象
     @Override
     public Book findBookInfo(String id) {
         String sql = "SELECT * FROM t_book WHERE user_id=?";
@@ -67,11 +69,35 @@ public class BookDaoImpl implements BookDao {
         return book;
     }
 
+    // 返回对象集合
     @Override
     public List<Book> findAllBooks() {
         String sql = "SELECT * FROM t_book";
         // 把得到的所有对象封装到Book里面 然后放入到List返回
         List<Book> bookList = jdbcTemplate.query(sql, new BeanPropertyRowMapper<Book>(Book.class));
         return bookList;
+    }
+
+    // 批量添加
+    @Override
+    public void batchAdd(List<Object[]> batchArgs) {
+        String sql = "INSERT INTO t_book VALUES(?,?,?)";
+        int[] ints = jdbcTemplate.batchUpdate(sql, batchArgs);
+        System.out.println("ints = " + Arrays.toString(ints));
+    }
+
+    // 批量修改
+    @Override
+    public void batchUpdate(List<Object[]> batchArgs) {
+        String sql = "UPDATE t_book SET username=?,ustatus=? where user_id=?";
+        int[] ints = jdbcTemplate.batchUpdate(sql, batchArgs);
+        System.out.println("ints = " + Arrays.toString(ints));
+    }
+
+    @Override
+    public void batchDelete(List<Object[]> batchArgs) {
+        String sql = "DELETE FROM t_book where user_id=?";
+        int[] ints = jdbcTemplate.batchUpdate(sql, batchArgs);
+        System.out.println("ints = " + Arrays.toString(ints));
     }
 }

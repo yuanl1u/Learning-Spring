@@ -22,4 +22,10 @@ public interface BookDao {
     Book findBookInfo(String id);
 
     List<Book> findAllBooks();
+
+    void batchAdd(List<Object[]> batchArgs);
+
+    void batchUpdate(List<Object[]> batchArgs);
+
+    void batchDelete(List<Object[]> batchArgs);
 }
